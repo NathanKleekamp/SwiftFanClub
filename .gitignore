@@ -73,3 +73,6 @@ fastlane/test_output
 .Trashes
 .Spotlight-V100
 *.swp
+
+forums.db
+
