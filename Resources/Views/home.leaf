@@ -5,7 +5,7 @@
         <p>Welcome back, #(username)!</p>
         <ul>
         #for(forum in forums) {
-            <li><a href="/forum/#(forum.id)">#(forum.name)</a></li>
+            <li><a href="/forums/#(forum.id)">#(forum.name)</a></li>
         }
         </ul>
     } else {
