@@ -18,4 +18,16 @@ struct Message: Content, SQLiteModel, Migration {
   var parent: Int
   var user: String
   var date: Date
+  var slug: String
+
+  init(id: Int, forum: Int, title: String, body: String, parent: Int, user: String, date: Date) {
+    self.id = id
+    self.forum = forum
+    self.title = title
+    self.body = body
+    self.parent = parent
+    self.user = user
+    self.date = date
+    self.slug = title.lowercased().split(separator: " ").joined(separator: "-")
+  }
 }
