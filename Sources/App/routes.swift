@@ -55,6 +55,38 @@ public func routes(_ router: Router) throws {
     }
   }
 
+  router.get("forums", Int.parameter, "messages", Int.parameter) { req -> Future<View> in
+    struct MessageContext: Codable {
+      var forum: Forum
+      var message: Message
+      var replies: [Message]
+    }
+
+    let forumId = try req.parameter(Int.self)
+    let messageId = try req.parameter(Int.self)
+
+    return Forum.find(forumId, on: req).flatMap(to: View.self) { forum in
+      guard let forum = forum else {
+        throw Abort(.notFound)
+      }
+
+      return Message.find(messageId, on: req).flatMap(to: View.self) { message in
+        guard let message = message else {
+          throw Abort(.notFound)
+        }
+
+        let replies = Message.query(on: req)
+          .filter(\.parent == message.id!)
+          .all()
+
+        return replies.flatMap(to: View.self) { replies in
+          let context = MessageContext(forum: forum, message: message, replies: replies)
+          return try req.view().render("message", context)
+        }
+      }
+    }
+  }
+
   router.get { req -> Future<View> in
     struct HomeContext: Codable {
       var username: String?

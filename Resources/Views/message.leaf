@@ -1,0 +1,39 @@
+#set("title") {
+  #(message.title) | #(forum.name)
+}
+
+#set("body") {
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/forums/#(forum.id)">#(forum.name)</a></li>
+      #if(message.parent != 0) {
+      <li class="breadcrumb-item"><a href="/forums/#(forum.id)/messages/#(message.parent)">Original Post</a></li>
+      }
+      <li class="breadcrumb-item active" aria-current="page">#(message.title)</li>
+    </ol>
+  </nav>
+
+  <h1>#(message.title)</h1>
+  <p>Posted by: #(message.user) on #date(message.date, "HH:mm EEEE, MMM d, yyy")</p>
+
+  #(message.body)
+
+  <hr>
+  #if(count(replies) > 0) {
+    <h2>Replies</h2>
+    <ul>
+    #for(reply in replies) {
+      <li><a href="/forums/#(forum.id)/messages/#(reply.id)">#(reply.title)</a></li>
+    }
+    </ul>
+  }
+
+  <form method="post">
+    <h3>Post a reply</h3>
+    <input type="hidden" name="title" value="reply">
+    <textarea name="body" class="form-control" rows="5"></textarea>
+    <button type="submit" class="btn btn-primary">Reply</button>
+  </form>
+}
+
+#embed("master")
