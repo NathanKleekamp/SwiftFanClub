@@ -74,5 +74,5 @@ fastlane/test_output
 .Spotlight-V100
 *.swp
 
-forums.db
-
+*.db
+*.xcodeproj
