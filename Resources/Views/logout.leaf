@@ -1,0 +1,11 @@
+#set("title") {
+  "Logged Out | Taylor Swift Fan Club"
+}
+
+#set("body") {
+  <h1>You've successfully logged out. Login again?</h1>
+  #embed("loginForm")
+}
+
+#embed("master")
+

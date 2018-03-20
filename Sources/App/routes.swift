@@ -87,6 +87,14 @@ public func routes(_ router: Router) throws {
     }
   }
 
+  router.get("login") { req -> Future<View> in
+    return try req.view().render("login")
+  }
+
+  router.get("logout") { req -> Future<View> in
+    return try req.view().render("logout")
+  }
+
   router.get { req -> Future<View> in
     struct HomeContext: Codable {
       var username: String?
