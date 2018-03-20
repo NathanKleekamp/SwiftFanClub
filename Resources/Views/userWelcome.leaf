@@ -1,9 +1,9 @@
 #set("title") {
-  "Welcome | Taylor Swift Fan Club"
+  "Welcome | Bob Dylan Fan Club"
 }
 
 #set("body") {
-  <h1>Welcome to the Taylor Swift Fan Club!</h1>
+  <h1>Welcome to the Bob Dylan Fan Club!</h1>
 }
 
 #embed("master")

@@ -1,6 +1,6 @@
 #set("title") { Home }
 #set("body") {
-    <h1>Taylor Swift Fan Club</h1>
+    <h1>Bob Dylan Fan Club</h1>
     #if(username) {
         <p>Welcome back, #(username)!</p>
         <ul>
