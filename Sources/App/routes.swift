@@ -95,6 +95,10 @@ public func routes(_ router: Router) throws {
     return try req.view().render("logout")
   }
 
+  router.get("user", "create") { req -> Future<View> in
+    return try req.view().render("userCreate")
+  }
+
   router.get { req -> Future<View> in
     struct HomeContext: Codable {
       var username: String?

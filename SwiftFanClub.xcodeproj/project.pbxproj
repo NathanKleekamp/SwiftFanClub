@@ -23,6 +23,7 @@
 /* Begin PBXBuildFile section */
 		D8845F52205E972C009F877F /* Forum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8845F51205E972C009F877F /* Forum.swift */; };
 		D8845F54205EACEC009F877F /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8845F53205EACEC009F877F /* Message.swift */; };
+		D8845F562060AC9C009F877F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8845F552060AC9C009F877F /* User.swift */; };
 		OBJ_1003 /* http_parser.c in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_328 /* http_parser.c */; };
 		OBJ_1009 /* libc.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_641 /* libc.swift */; };
 		OBJ_1015 /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_36 /* sqlite3.c */; };
@@ -2482,6 +2483,7 @@
 		"Crypto::Crypto::Product" /* Crypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Crypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8845F51205E972C009F877F /* Forum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forum.swift; sourceTree = "<group>"; };
 		D8845F53205EACEC009F877F /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		D8845F552060AC9C009F877F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		"DatabaseKit::DatabaseKit::Product" /* DatabaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DatabaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"DatabaseKit::SQL::Product" /* SQL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SQL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Engine::CHTTP::Product" /* CHTTP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CHTTP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -5304,6 +5306,7 @@
 				OBJ_9 /* boot.swift */,
 				OBJ_10 /* configure.swift */,
 				OBJ_11 /* routes.swift */,
+				D8845F552060AC9C009F877F /* User.swift */,
 				D8845F53205EACEC009F877F /* Message.swift */,
 			);
 			name = App;
@@ -7274,6 +7277,7 @@
 			files = (
 				OBJ_748 /* boot.swift in Sources */,
 				OBJ_749 /* configure.swift in Sources */,
+				D8845F562060AC9C009F877F /* User.swift in Sources */,
 				D8845F54205EACEC009F877F /* Message.swift in Sources */,
 				OBJ_750 /* routes.swift in Sources */,
 				D8845F52205E972C009F877F /* Forum.swift in Sources */,

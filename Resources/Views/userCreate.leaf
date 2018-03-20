@@ -1,0 +1,10 @@
+#set("title") {
+  "Create Accout | Taylor Swift Fan Club"
+}
+
+#set("body") {
+  <h1>Create Account</h1>
+  #embed("loginForm")
+}
+
+#embed("master")

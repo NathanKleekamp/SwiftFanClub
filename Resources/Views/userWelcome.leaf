@@ -1,0 +1,9 @@
+#set("title") {
+  "Welcome | Taylor Swift Fan Club"
+}
+
+#set("body") {
+  <h1>Welcome to the Taylor Swift Fan Club!</h1>
+}
+
+#embed("master")
