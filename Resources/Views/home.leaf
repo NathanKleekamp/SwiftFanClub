@@ -9,7 +9,7 @@
         }
         </ul>
     } else {
-        <a href="/users/login">Login</a>
+        <a href="/login">Login</a>
     }
 }
 

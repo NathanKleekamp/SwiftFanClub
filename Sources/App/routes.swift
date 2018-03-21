@@ -91,12 +91,50 @@ public func routes(_ router: Router) throws {
     return try req.view().render("login")
   }
 
+  router.post("login") { req -> Future<View> in
+    let user = try req.content.decode(User.self).await(on: req)
+
+    return User.query(on: req)
+      .filter(\.username == user.username)
+      .first().flatMap(to: View.self) { record in
+        if let record = record {
+          if try req.make(BCryptHasher.self).verify(message: user.password, matches: record.password) {
+            let session = try req.session()
+            session["username"] = record.username
+            return try req.view().render("userWelcome")
+          }
+        }
+
+        let context = ["error": true]
+        return try req.view().render("login", context)
+    }
+  }
+
   router.get("logout") { req -> Future<View> in
     return try req.view().render("logout")
   }
 
-  router.get("user", "create") { req -> Future<View> in
+  router.get("register") { req -> Future<View> in
     return try req.view().render("userCreate")
+  }
+
+  router.post("register") { req -> Future<View> in
+    var user = try req.content.decode(User.self).await(on: req)
+
+    return User.query(on: req)
+      .filter(\.username == user.username)
+      .first().flatMap(to: View.self) { record in
+        if record == nil {
+          user.password = try req.make(BCryptHasher.self).make(user.password)
+
+          return user.save(on: req).flatMap(to: View.self) { user in
+            return try req.view().render("userWelcome")
+          }
+        } else {
+          let context = ["error": "true"]
+          return try req.view().render("userCreate", context)
+        }
+    }
   }
 
   router.get { req -> Future<View> in
@@ -113,5 +151,6 @@ public func routes(_ router: Router) throws {
 }
 
 func getUsername(_ req: Request) -> String? {
-  return "Testing"
+  let session = try? req.session()
+  return session?["username"]
 }

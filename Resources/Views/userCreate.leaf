@@ -4,6 +4,11 @@
 
 #set("body") {
   <h1>Create Account</h1>
+
+  #if(error == true) {
+    <p class="error">The username is already taken</p>
+  }
+
   #embed("loginForm")
 }
 
